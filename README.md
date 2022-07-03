@@ -3,5 +3,5 @@ Shit and EXTREMELY lightweight JS Framework cause i don't like neither Angular n
 
 ### setup (every time you load the project)
 I couldn't be less bothered to program a custom CLI, so just follow these:
-- Install some kind of Live HTML previewer on your preferred IDE
+- Install some kind of Live HTML previewer on your preferred IDE (**not mandatory**, but makes front-end development easier)
 - to enable TailwindCSS, run `npx tailwindcss -i ./views/style.css -o ./views/tailwind.css --watch`
