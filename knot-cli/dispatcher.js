@@ -11,14 +11,14 @@ exports.command = (name, callback, options) =>
 exports.dispatch = () =>
 {
     const command = process.argv[2];
-    
+
     if(Object.keys(commands).includes(command))
     {
         let args;
         if(checkKey(commands[command], 'options') && !checkKey(commands[command].options, 'singlePar'))
             args = parseArgs();
 
-        if(args != undefined)
+        if(args == undefined)
             commands[command].callback(process.argv[3], process.cwd());
         else
             commands[command].callback(args, process.cwd());
