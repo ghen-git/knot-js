@@ -1,18 +1,20 @@
 {
-  "name": "@knot/cli",
-  "version": "1.0.0",
+  "name": "@g-knot/cli",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "bin": {
     "knot": "./index.js"
   },
-  "scripts": {},
+  "scripts": {
+    "postinstall": "node greetings.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chokidar": "^3.5.3",
     "fs-extra": "^10.1.0",
-    "live-server": "^1.1.0"
+    "servor": "^4.0.2"
   }
 }

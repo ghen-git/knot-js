@@ -1,4 +1,5 @@
 const fse = require('fs-extra');
+const { exec } = require('child_process');
  
 function createClient(name, path)
 {
@@ -11,6 +12,7 @@ function createClient(name, path)
         else 
         {
             console.log("success!");
+            exec(`cd ${path + '/' + name} & npm i tailwindcss & npm i`);
         }
     });
 }

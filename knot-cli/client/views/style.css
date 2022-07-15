@@ -4,5 +4,5 @@
 
 body.app
 {
-    @apply min-h-screen w-screen flex items-center justify-center
+    @apply min-h-screen w-screen flex items-center justify-center;
 }

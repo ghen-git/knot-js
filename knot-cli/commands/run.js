@@ -1,8 +1,8 @@
 const { watch } = require('chokidar');
 const { exec } = require('child_process');
-const liveServer = require('live-server');
+const servor = require('servor');
 
-function run(args, path)
+async function run(args, path)
 {
     //starts tailwind
     exec('npx tailwindcss -i ./views/style.css -o ./views/tailwind.css --watch');
@@ -19,18 +19,19 @@ function run(args, path)
     console.log(`watching ${path}`);
 
     //live server
-    const params = 
-    {
-        host: '127.0.0.1',
-        port: '4200',
-        root: 'views',
-        open: true,
-        file: 'index.html',
-        wait: 50,
-        logLevel: 0
-    };
-    
-    liveServer.start(params);
+    const livePage = await servor({
+        root: './views',
+        fallback: 'index.html',
+        module: false,
+        static: false,
+        reload: true,
+        inject: '',
+        credentials: null,
+        port: 4200,
+    });
+
+    const start = (process.platform == 'darwin'? 'open': process.platform == 'win32'? 'start': 'xdg-open');
+    exec(`${start} http://localhost:4200`);
 }
 
 module.exports = run;
