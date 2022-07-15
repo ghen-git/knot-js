@@ -6,9 +6,7 @@
   "bin": {
     "knot": "./index.js"
   },
-  "scripts": {
-    "postinstall": "node greetings.js"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
