@@ -4,5 +4,82 @@
 
 body.app
 {
-    @apply min-h-screen w-screen flex items-center justify-center;
+    @apply min-h-screen w-screen flex flex-col items-center justify-center overflow-x-hidden;
+}
+
+.blueprint div h1, h2, h3, h4, h5, h6
+{
+    @apply text-lg font-semibold;
+}
+
+.min-h-screen.grid > *
+{
+    @apply min-h-full;
+}
+
+.min-h-screen.grid > background > grid
+{
+    @apply min-h-full;
+}
+
+knot-grid
+{
+    @apply w-screen min-h-screen grid;
+}
+
+knot-grid > *
+{
+    @apply h-auto overflow-hidden;
+}
+
+knot-grid > background > grid
+{
+    @apply min-h-screen h-auto;
+}
+
+background
+{
+    position: absolute;
+    z-index: -1;
+    min-height: 100vh;
+}
+
+background > grid
+{
+    width: 200px;
+    @apply border-1 border-bp-500 bg-bp-500 grid w-screen;
+    grid-gap: 1px;
+}
+
+background > grid > *
+{
+    @apply bg-gray-50 col-span-1 row-span-1 text-transparent;
+}
+
+.flex-center
+{
+    @apply flex flex-col items-center justify-center;
+}
+
+.square
+{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.square:before
+{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.square: > *
+{
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+    text-align: center;
 }

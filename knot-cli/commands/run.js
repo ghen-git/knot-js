@@ -1,19 +1,21 @@
 const { watch } = require('chokidar');
 const { exec } = require('child_process');
 const servor = require('servor');
+const onAddRouter = require('./file-middleware/on-add-router');
+const onEditRouter = require('./file-middleware/on-edit-router');
 
 async function run(args, path)
 {
     //starts tailwind
     exec('npx tailwindcss -i ./views/style.css -o ./views/tailwind.css --watch');
-    exec('npx tailwindcss -i ./views/knot/css/knot-base.css -o ./views/knot/css/knot.css'); // ⚠ NEEDS TO BE REMOVED FOR FINAL PACKAGE ⚠
+    exec('npx tailwindcss -i ./views/knot/css/knot-base.css -o ./views/knot/css/knot.css --watch'); // ⚠ NEEDS TO BE REMOVED FOR FINAL PACKAGE ⚠
 
     //for later when needing to update the js
     let watcher = watch(path, {ignored: /^\./, persistent: true, ignoreInitial: true});
 
     watcher
-        .on('add', function(path) {console.log('File', path, 'has been added');})
-        .on('change', function(path) {console.log('File', path, 'has been changed');})
+        .on('add', onAddRouter)
+        //.on('change', onEditRouter)
         .on('unlink', function(path) {console.log('File', path, 'has been removed');})
         .on('error', function(error) {console.error('Error happened', error);})
 

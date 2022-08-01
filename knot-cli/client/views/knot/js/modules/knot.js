@@ -1,8 +1,8 @@
 import serverVerbs from './server-verbs.js';
+import './blueprint.js';
+import './grid.js'
 
-init();
-
-function init()
+export
 {
-    window.serverVerbs = serverVerbs;
-}
+    serverVerbs as request
+};

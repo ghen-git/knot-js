@@ -1,8 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body.app
-{
-    @apply min-h-screen w-screen flex items-center justify-center;
-}

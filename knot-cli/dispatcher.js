@@ -1,4 +1,4 @@
-var commands = {};
+let commands = {};
 
 exports.command = (name, callback, options) =>
 {

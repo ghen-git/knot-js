@@ -558,14 +558,154 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.inline-block {
-  display: inline-block;
+.row-start-2 {
+  grid-row-start: 2;
+}
+
+.row-end-3 {
+  grid-row-end: 3;
 }
 
 body.app {
   display: flex;
   min-height: 100vh;
   width: 100vw;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
+}
+
+body.app.grid > * {
+  min-height: 100%;
+}
+
+body.app.grid > background > grid {
+  min-height: 100%;
+}
+
+.blueprint div h1,  h2,  h3,  h4,  h5,  h6 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.min-h-screen.grid > * {
+  min-height: 100%;
+}
+
+.min-h-screen.grid > background > grid {
+  min-height: 100%;
+}
+
+knot-grid {
+  display: grid;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+knot-grid.grid > * {
+  min-height: 100%;
+}
+
+.min-h-screenknot-grid > * {
+  min-height: 100%;
+}
+
+knot-grid.grid > background > grid {
+  min-height: 100%;
+}
+
+.min-h-screenknot-grid > background > grid {
+  min-height: 100%;
+}
+
+knot-grid > * {
+  height: auto;
+  overflow: hidden;
+}
+
+knot-grid > background > grid {
+  height: auto;
+  min-height: 100vh;
+}
+
+knot-grid > background > grid.grid > * {
+  min-height: 100%;
+}
+
+knot-grid > background > grid.grid > background > grid {
+  min-height: 100%;
+}
+
+background
+{
+  position: absolute;
+  z-index: -1;
+  min-height: 100vh;
+}
+
+background > grid
+{
+  width: 200px;
+  display: grid;
+  width: 100vw;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(126 132 147 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(126 132 147 / var(--tw-bg-opacity));
+}
+
+.min-h-screenbackground > grid > * {
+  min-height: 100%;
+}
+
+.min-h-screenbackground > grid > background > grid {
+  min-height: 100%;
+}
+
+background > grid
+{
+  grid-gap: 1px;
+}
+
+background > grid > * {
+  grid-column: span 1 / span 1;
+  grid-row: span 1 / span 1;
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  color: transparent;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.square
+{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.square:before
+{
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.square:target-within
+{
+  position:  absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: white;
+  text-align: center;
 }
