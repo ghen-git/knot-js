@@ -16,10 +16,16 @@
     <script type="module" src="js/index.js"></script>
 </head>
 <body class="app blueprint">
-    <knot-grid rows="50px 1-1 50px" cols="50px 1-1 50px">
+    <knot-grid rows="50px 1-1" cols="50px 1-1 50px">
         <div class="flex-center">logo</div>
         <div class="flex-center">title</div>
-        <div class="row-start-2 row-end-3">
+        <div class="row-start-2 row-end-3"></div>
+        <div class="row-start-2 col-start-2">
+            <knot-grid rows="1-1" cols="3-1">
+                <div class="col-start-2 col-span-2">
+                    <knot-grid rows="5-1" cols="1-1"></knot-grid>
+                </div>
+            </knot-grid>
         </div>
     </knot-grid>
 </body>

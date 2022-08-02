@@ -558,6 +558,14 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.col-start-2 {
+  grid-column-start: 2;
+}
+
 .row-start-2 {
   grid-row-start: 2;
 }
@@ -598,21 +606,46 @@ body.app.grid > background > grid {
   min-height: 100%;
 }
 
-knot-grid {
-  display: grid;
+body > knot-grid {
   min-height: 100vh;
   width: 100vw;
 }
 
-knot-grid.grid > * {
+body > knot-grid.grid > * {
   min-height: 100%;
+}
+
+body > knot-grid.grid > background > grid {
+  min-height: 100%;
+}
+
+body > knot-grid > * {
+  height: auto;
+  overflow: hidden;
+}
+
+body > knot-grid > background > grid {
+  height: auto;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+body > knot-grid > background > grid.grid > * {
+  min-height: 100%;
+}
+
+body > knot-grid > background > grid.grid > background > grid {
+  min-height: 100%;
+}
+
+knot-grid {
+  position: relative;
+  display: grid;
+  height: 100%;
+  width: 100%;
 }
 
 .min-h-screenknot-grid > * {
-  min-height: 100%;
-}
-
-knot-grid.grid > background > grid {
   min-height: 100%;
 }
 
@@ -620,41 +653,25 @@ knot-grid.grid > background > grid {
   min-height: 100%;
 }
 
-knot-grid > * {
-  height: auto;
-  overflow: hidden;
-}
-
-knot-grid > background > grid {
-  height: auto;
-  min-height: 100vh;
-}
-
-knot-grid > background > grid.grid > * {
-  min-height: 100%;
-}
-
-knot-grid > background > grid.grid > background > grid {
-  min-height: 100%;
-}
-
 background
 {
   position: absolute;
   z-index: -1;
-  min-height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
 }
 
-background > grid
-{
-  width: 200px;
+background * {
+  background-color: transparent;
+}
+
+background > grid {
   display: grid;
-  width: 100vw;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(126 132 147 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(126 132 147 / var(--tw-bg-opacity));
+  height: 100%;
+  width: 100%;
 }
 
 .min-h-screenbackground > grid > * {
@@ -665,16 +682,12 @@ background > grid
   min-height: 100%;
 }
 
-background > grid
-{
-  grid-gap: 1px;
-}
-
 background > grid > * {
   grid-column: span 1 / span 1;
   grid-row: span 1 / span 1;
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(184 201 215 / var(--tw-border-opacity));
   color: transparent;
 }
 
@@ -683,29 +696,4 @@ background > grid > * {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.square
-{
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.square:before
-{
-  content: "";
-  display: block;
-  padding-top: 100%;
-}
-
-.square:target-within
-{
-  position:  absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  color: white;
-  text-align: center;
 }

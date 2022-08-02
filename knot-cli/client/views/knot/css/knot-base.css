@@ -22,64 +22,53 @@ body.app
     @apply min-h-full;
 }
 
-knot-grid
+body > knot-grid
 {
-    @apply w-screen min-h-screen grid;
+    @apply w-screen min-h-screen;
 }
 
-knot-grid > *
+body > knot-grid > *
 {
     @apply h-auto overflow-hidden;
 }
 
-knot-grid > background > grid
+body > knot-grid > background > grid
 {
-    @apply min-h-screen h-auto;
+    @apply w-screen min-h-screen h-auto;
+}
+
+knot-grid
+{
+    @apply w-full grid h-full relative;
 }
 
 background
 {
     position: absolute;
     z-index: -1;
-    min-height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    @apply bg-transparent;
+}
+
+background *
+{
+    @apply bg-transparent;
 }
 
 background > grid
 {
-    width: 200px;
-    @apply border-1 border-bp-500 bg-bp-500 grid w-screen;
-    grid-gap: 1px;
+    @apply grid w-full h-full;
 }
 
 background > grid > *
 {
-    @apply bg-gray-50 col-span-1 row-span-1 text-transparent;
+    @apply border-1 border-bp-200 col-span-1 row-span-1 text-transparent;
 }
 
 .flex-center
 {
     @apply flex flex-col items-center justify-center;
-}
-
-.square
-{
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-.square:before
-{
-    content: "";
-    display: block;
-    padding-top: 100%;
-}
-.square: > *
-{
-    position:  absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    color: white;
-    text-align: center;
 }

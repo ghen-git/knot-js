@@ -25,8 +25,6 @@ function displayGrid(gridsRef)
             rows = getGridNumber(rowsStyle);
             cols = getGridNumber(colsStyle);
 
-            grid.style.gridTemplateRows = rowsStyle;
-            grid.style.gridTemplateColumns = colsStyle;
             background = `<background><grid style='
             grid-template-rows: ${rowsStyle};
             grid-template-columns: ${colsStyle};
@@ -58,8 +56,16 @@ function displayGrid(gridsRef)
 
     for(const grid of grids)
     {
-        grid.grid.innerHTML += grid.background;
+        grid.grid.append(htmlToElement(grid.background));
     }
+}
+
+function htmlToElement(html) 
+{
+    var template = document.createElement('template');
+    html = html.trim();
+    template.innerHTML = html;
+    return template.content.firstChild;
 }
 
 function getFillerItemsCount(grid, rows, cols)
@@ -69,11 +75,12 @@ function getFillerItemsCount(grid, rows, cols)
 
     for(const item of children)
     {
-        const rowSpan = getSpan(item, 'row', rows);
-        const colSpan = getSpan(item, 'col', cols);
+        const rowSpan = getSpan(item, 'row', rows) ?? 1;
+        const colSpan = getSpan(item, 'col', cols) ?? 1;
+
         console.log(rowSpan, colSpan);
 
-        n -= (rowSpan * colSpan) == 0 ?? 1;
+        n -= (rowSpan * colSpan);
     }
 
     return n;
@@ -83,7 +90,10 @@ function getSpan(item, type, fullN)
 {
     for(const cls of item.classList)
         if(cls.includes(`${type}-span-`))
-            return cls.split('-').pop() == 'full' ?? fullN;
+        {
+            const n = cls.split('-').pop();
+            return n == 'full' ? fullN : parseInt(n);
+        }
 }
 
 function parseGridStyle(style)
@@ -114,7 +124,6 @@ function getGridNumber(style)
     style = style.replaceAll(/ *, */g, ',');
     const statements = style.split(' ');
     let n = statements.length;
-    console.log(statements);
 
     for(const statement of statements)
         if(statement.includes('repeat'))
@@ -125,6 +134,5 @@ function getGridNumber(style)
             n += parseInt(str) - 1;
         }
     
-    console.log(n);
     return n;
 }

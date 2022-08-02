@@ -54,7 +54,6 @@ function getGridNumber(style)
     style = style.replaceAll(/ *, */g, ',');
     const statements = style.split(' ');
     let n = statements.length;
-    console.log(statements);
 
     for(const statement of statements)
         if(statement.includes('repeat'))
@@ -65,6 +64,5 @@ function getGridNumber(style)
             n += parseInt(str) - 1;
         }
     
-    console.log(n);
     return n;
 }
