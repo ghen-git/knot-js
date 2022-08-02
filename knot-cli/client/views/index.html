@@ -15,17 +15,30 @@
 
     <script type="module" src="js/index.js"></script>
 </head>
-<body class="app blueprint">
+<body class="app transition bg-slate-900 text-white">
+    <!-- main grid -->
     <knot-grid rows="50px 1-1" cols="50px 1-1 50px">
-        <div class="flex-center">logo</div>
-        <div class="flex-center">title</div>
-        <div class="row-start-2 row-end-3"></div>
-        <div class="row-start-2 col-start-2">
-            <knot-grid rows="1-1" cols="3-1">
-                <div class="col-start-2 col-span-2">
-                    <knot-grid rows="5-1" cols="1-1"></knot-grid>
+        <!-- logo -->
+        <div class="flex-center">logo</div> 
+        <!-- sidebar -->
+        <div class="row-start-2 row-end-3">
+        </div>
+        <!-- content -->
+        <div class="row-start-2 col-start-2 flex-center">
+            <!-- title -->
+            <div class="flex-center mb-20 text-5xl">Test Application</div>
+            <div class="bg-slate-800 w-full md:w-2/3  p-5 rounded-md flex-center">
+                <div class="bg-slate-700 w-full h-48 mb-5 rounded-md">
                 </div>
-            </knot-grid>
+                <div class="bg-slate-700 w-full h-48 m-5 rounded-md">
+                </div>
+                <div class="bg-slate-700 w-full h-48 m-5 rounded-md">
+                </div>
+                <div class="bg-slate-700 w-full h-48 m-5 rounded-md">
+                </div>
+                <div class="bg-slate-700 w-full h-48 mt-5 rounded-md">
+                </div>
+            </div>
         </div>
     </knot-grid>
 </body>

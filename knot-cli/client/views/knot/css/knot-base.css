@@ -7,6 +7,17 @@ body.app
     @apply min-h-screen w-screen flex flex-col items-center justify-center overflow-x-hidden;
 }
 
+body.transition *
+{
+    @apply transition-all;
+}
+
+body.loading *:not(.loading-screen)
+{
+    display: none;
+}
+
+/*#region Blueprint & grid*/
 .blueprint div h1, h2, h3, h4, h5, h6
 {
     @apply text-lg font-semibold;
@@ -67,8 +78,38 @@ background > grid > *
 {
     @apply border-1 border-bp-200 col-span-1 row-span-1 text-transparent;
 }
+/*#endregion */
+
+/*#region General purpose*/
 
 .flex-center
 {
     @apply flex flex-col items-center justify-center;
 }
+
+.flex-left
+{
+    @apply flex flex-col items-start justify-center;
+}
+
+.size-square
+{
+    @apply w-full aspect-square;
+}
+
+/*#endregion*/
+
+/*#region Application Elements*/
+
+.menu-item
+{
+    @apply flex flex-col items-center justify-center cursor-pointer;
+}
+
+.menu-item.selected
+{
+    position: relative;
+    @apply border-r-4 border-slate-700;
+}
+
+/*#endregion*/
