@@ -72,8 +72,6 @@ function getFillerItemsCount(grid, rows, cols)
         const rowSpan = getSpan(item, 'row', rows) ?? 1;
         const colSpan = getSpan(item, 'col', cols) ?? 1;
 
-        console.log(rowSpan, colSpan);
-
         n -= (rowSpan * colSpan);
     }
 

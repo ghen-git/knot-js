@@ -18,14 +18,10 @@ body.loading *:not(.loading-screen)
 }
 
 /*#region Blueprint & grid*/
-.blueprint div h1, h2, h3, h4, h5, h6
-{
-    @apply text-lg font-semibold;
-}
 
-.min-h-screen.grid > *
+.blueprint div
 {
-    @apply min-h-full;
+    @apply border-1 border-bp-200;
 }
 
 .min-h-screen.grid > background > grid
@@ -76,7 +72,12 @@ background > grid
 
 background > grid > *
 {
-    @apply border-1 border-bp-200 col-span-1 row-span-1 text-transparent;
+    @apply border-1 border-bp-200 col-span-1 row-span-1;
+}
+
+background > grid *
+{
+    @apply text-transparent bg-transparent;
 }
 /*#endregion */
 
@@ -87,7 +88,12 @@ background > grid > *
     @apply flex flex-col items-center justify-center;
 }
 
-.flex-left
+.flex-c-col
+{
+    @apply flex flex-col items-center
+}
+
+.flex-c-left
 {
     @apply flex flex-col items-start justify-center;
 }
@@ -110,6 +116,20 @@ background > grid > *
 {
     position: relative;
     @apply border-r-4 border-slate-700;
+}
+
+/*#endregion*/
+
+/*#region Preview*/
+
+body.preview button
+{
+    @apply p-2 px-5 m-3 bg-cyan-500 text-white rounded-lg;
+}
+
+body.preview input
+{
+    @apply border-1 p-2 px-3 m-3;
 }
 
 /*#endregion*/
