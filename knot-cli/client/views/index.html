@@ -13,7 +13,7 @@
     
     <!-- ⚠ end of knot stuff ⚠ -->
 
-    <script src="js/index.js"></script>
+    <script type="module" src="js/index.js"></script>
 </head>
 <body class="app preview transition">
     <!-- main grid -->
@@ -26,27 +26,17 @@
         <!-- content -->
         <div class="row-start-2 col-start-2 flex-c-col">
             <!-- title -->
-            <div k-var="idk" class="flex-center mb-20 text-5xl font-extralight">Title</div>
+            <div class="flex-center mb-20 text-5xl font-extralight">Title</div>
             <div class="w-full md:w-2/3 p-10">
                 <div class="mb-5">
-                    <h1 k-var="idk" class="text-3xl m-0 p-0">Menacing title</h1>
+                    <h1 class="text-3xl m-0 p-0">Menacing title</h1>
                     <span class="text-xs">slightly less menacing title</span>
                 </div>
                 <div k-var="idk" class="p-10 shadow-md m-6">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt id provident fuga. Magni itaque sunt sint eos provident non vero minus excepturi, nemo fuga minima ducimus, voluptate blanditiis nostrum corrupti.
                 </div>
-                <div k-var="idk" class="p-10 shadow-md m-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt id provident fuga. Magni itaque sunt sint eos provident non vero minus excepturi, nemo fuga minima ducimus, voluptate blanditiis nostrum corrupti.
-                </div>
-                <div k-var="idk" class="p-10 shadow-md m-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt id provident fuga. Magni itaque sunt sint eos provident non vero minus excepturi, nemo fuga minima ducimus, voluptate blanditiis nostrum corrupti.
-                </div>
                 <input type="text" k-var="name">
-                <button k-click="idk[name1] = name">Send</button>
-                <input type="text" k-var="name1">
-                <button k-click="">Send</button>
-                <input type="text" k-var="name2">
-                <button k-click="idk3 = name2">Send</button>
+                <button k-click="idk = name">Send</button>
             </div>
         </div>
     </knot-grid>

@@ -3,9 +3,13 @@ const { exec } = require('child_process');
 const servor = require('servor');
 const onAddRouter = require('./file-middleware/on-add-router');
 const onEditRouter = require('./file-middleware/on-edit-router');
+const options = require('../options');
 
 async function run(args, path)
 {
+    const project = options.findProjectByPath(path);
+    console.log(project.type);
+    
     //starts tailwind
     exec('npx tailwindcss -i ./views/style.css -o ./views/tailwind.css --watch');
     exec('npx tailwindcss -i ./views/knot/css/knot-base.css -o ./views/knot/css/knot.css --watch'); // ⚠ NEEDS TO BE REMOVED FOR FINAL PACKAGE ⚠
