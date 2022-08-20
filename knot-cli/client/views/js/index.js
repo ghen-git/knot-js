@@ -1,13 +1,22 @@
-import { localSerializer } from "../knot/js/modules/knot.js";
+import data from "./knot/local-serializer.js";
+import { globalKnot } from "./knot/knots.js";
+import events from './knot/events.js';
 
-localSerializer.onSave(() => 
+data.onSave(() => 
 ({
-    name: window.idk
+    name: globalKnot.name,
+    surname: globalKnot.surname,
+    sent: false
 }));
 
-loadData(localSerializer.savedData);
-
-function loadData(data)
+document.addEventListener('init', () =>
 {
-    window.idk = data.name;
+    globalKnot.add('name', data.name);
+    globalKnot.add('surname', data.surname);
+    globalKnot.add('sent', data.sent);
+});
+
+events.cock = () =>
+{
+    console.log('sup');
 }

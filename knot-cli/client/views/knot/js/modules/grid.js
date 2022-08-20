@@ -1,4 +1,4 @@
-init();
+document.addEventListener('preinit', init);
 
 function init()
 {

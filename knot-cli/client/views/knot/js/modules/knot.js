@@ -1,14 +1,26 @@
-import './elements.js'
-import serverVerbs from './server-verbs.js';
-import './grid.js'
+import './elements.js';
+import './grid.js';
 import './blueprint.js';
-import './menu.js'
-import { htmlToElement } from './util.js';
-import * as localSerializer from './local-serializer.js';
+import './menu.js';
+import '../../../js/knot/knots.js';
+import '../../../js/knot/events.js';
 
-export
+const loadKnots = new Event('loadKnots');
+const loadEvents = new Event('loadEvents');
+const preinit = new Event('preinit');
+const init = new Event('init');
+const postinit = new Event('postinit');
+
+document.addEventListener('readystatechange', () =>
 {
-    serverVerbs as request,
-    htmlToElement as htmlToElement,
-    localSerializer as localSerializer
-};
+    window.dispatchEvent(loadKnots);
+    document.dispatchEvent(loadKnots);
+    window.dispatchEvent(loadEvents);
+    document.dispatchEvent(loadEvents);
+    window.dispatchEvent(preinit);
+    document.dispatchEvent(preinit);
+    window.dispatchEvent(init);
+    document.dispatchEvent(init);
+    window.dispatchEvent(postinit);
+    document.dispatchEvent(postinit);
+});

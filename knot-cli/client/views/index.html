@@ -6,8 +6,8 @@
 
     <!-- ⚠ KNOT STUFF [will bite] ⚠ -->
 
-    <link rel="stylesheet" href="tailwind.css">
     <link rel="stylesheet" href="knot/css/knot.css">
+    <link rel="stylesheet" href="tailwind.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> <!-- tmp (sorry) -->   
     <script type="module" src="knot/js/modules/knot.js"></script>
     
@@ -19,24 +19,23 @@
     <!-- main grid -->
     <knot-grid rows="50px 1-1" cols="50px 1-1 50px">
         <!-- logo -->
-        <div class="flex-center">logo</div> 
+        <div dragto="test" class="flex-center">logo</div> 
         <!-- sidebar -->
         <div class="row-start-2 row-end-3">
         </div>
         <!-- content -->
         <div class="row-start-2 col-start-2 flex-c-col">
-            <!-- title -->
-            <div class="flex-center mb-20 text-5xl font-extralight">Title</div>
-            <div class="w-full md:w-2/3 p-10">
-                <div class="mb-5">
-                    <h1 class="text-3xl m-0 p-0">Menacing title</h1>
-                    <span class="text-xs">slightly less menacing title</span>
-                </div>
-                <div k-var="idk" class="p-10 shadow-md m-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt id provident fuga. Magni itaque sunt sint eos provident non vero minus excepturi, nemo fuga minima ducimus, voluptate blanditiis nostrum corrupti.
-                </div>
-                <input type="text" k-var="name">
-                <button k-click="idk = name">Send</button>
+            <div drop-container="test" class="flex-c-col">
+                <h1 class="text-xl" k-text="(removeKnot) => { if(this.sent) removeKnot(); return `Welcome, ${this.name} ${this.surname}`; }"></h1>
+                <input type="text" placeholder="name" k-input="this.name = this.value" k-init="this.el.value = this.name">
+                <input type="text" placeholder="surname" k-input="this.surname = this.value" k-init="this.el.value = this.surname">
+                <button k-click="this.sent = true" k-class="this.sent ? 'bg-cyan-500' : 'bg-orange-500'">Send</button>
+                <button dragto="test" class="bg-orange-500">Move me?</button>
+                <button k-click="cock" class="bg-orange-500">Say cock</button>
+            </div>
+            <div class="w-full flex-c-r-left">
+                <button class="bg-green-500 material-icons aspect-square">delete</button>
+                <button class="bg-green-500">Test</button>
             </div>
         </div>
     </knot-grid>

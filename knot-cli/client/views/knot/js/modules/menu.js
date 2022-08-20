@@ -1,7 +1,7 @@
 let menus = [];
 let selectedMenuId;
 
-init();
+document.addEventListener('preinit', init);
 
 function init()
 {

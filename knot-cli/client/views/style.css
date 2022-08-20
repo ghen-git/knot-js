@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.material-icons
+{
+	@apply text-base;
+}
+
+*
+{
+	font-family: 'JetBrains Mono';
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

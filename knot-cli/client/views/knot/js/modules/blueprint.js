@@ -1,6 +1,6 @@
-import { htmlToElement } from './util.js';
+import { htmlToElement } from '../../../js/knot/util.js';
 
-init();
+document.addEventListener('preinit', init);
 
 function init()
 {

@@ -1,8 +1,7 @@
-import { htmlToElement } from './util.js';
+import { htmlToElement } from '../../../js/knot/util.js';
 
 document.documentElement.onload = function()
 {
-    console.log('ey');
     document.querySelector('body').classList.add('loading');
 
     document.body.appendChild(htmlToElement(

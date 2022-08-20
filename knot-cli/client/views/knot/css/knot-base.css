@@ -83,19 +83,49 @@ background > grid *
 
 /*#region General purpose*/
 
+.flex-center, .flex-c-col, .flex-c-row, .flex-c-c-left, .flex-c-r-left, .flex-c-c-right, .flex-c-r-right
+{
+    @apply flex;
+}
+
+.flex-center.wrap, .flex-c-col.wrap, .flex-c-row.wrap, .flex-c-c-left.wrap, .flex-c-r-left.wrap, .flex-c-c-right.wrap, .flex-c-r-right.wrap
+{
+    @apply flex-wrap;
+}
+
 .flex-center
 {
-    @apply flex flex-col items-center justify-center;
+    @apply flex-col items-center justify-center;
 }
 
 .flex-c-col
 {
-    @apply flex flex-col items-center
+    @apply flex-col items-center
 }
 
-.flex-c-left
+.flex-c-row
 {
-    @apply flex flex-col items-start justify-center;
+    @apply flex-row justify-center
+}
+
+.flex-c-c-left
+{
+    @apply flex-col items-start justify-center;
+}
+
+.flex-c-r-left
+{
+    @apply flex-row items-center justify-start;
+}
+
+.flex-c-c-right
+{
+    @apply flex-col items-end justify-center;
+}
+
+.flex-c-r-right
+{
+    @apply flex-row items-center justify-end;
 }
 
 .size-square
@@ -124,7 +154,7 @@ background > grid *
 
 body.preview button
 {
-    @apply p-2 px-5 m-3 bg-cyan-500 text-white rounded-lg;
+    @apply p-2 px-5 m-3 text-white rounded-lg;
 }
 
 body.preview input
